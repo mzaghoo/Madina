@@ -1,10 +1,22 @@
 ## finding the nearest coordinates to location
+#
 
 import pandas as pd
 df = pd.read_csv("/Users/mzag/dubai_reduced_oct2020.csv")
 df.head()
-
 df=df.rename(columns = {'latitude':'lat','longitude':'lon'})
+
+
+
+from geopy.geocoders import Nominatim
+geolocator = Nominatim(user_agent="zaghoo@gmail.com")
+# Allow the user to enter the address  for example 
+location = geolocator.geocode("HAMENI TOWER Al Barsha South Fourth Dubai")
+#print(location.address)
+#Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York, ...
+#print((location.latitude, location.longitude))
+
+
 
 
 from math import radians, cos, sin, asin, sqrt
